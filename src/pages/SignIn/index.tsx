@@ -27,6 +27,7 @@ import {
 import logoImg from '../../assets/Logo/logo.png';
 
 export const SignIn: React.FC = () => {
+  const passwordInputRef = useRef(null);
   const formRef = useRef<FormHandles>(null);
   const Navigation = useNavigation();
 
@@ -57,8 +58,29 @@ export const SignIn: React.FC = () => {
               ref={formRef}
               onSubmit={handleSignIn}
             >
-              <Input name="email" icon="mail" placeholder="E-mail" />
-              <Input name="password" icon="lock" placeholder="Senha" />
+              <Input
+                autoCorrect={false}
+                autoCapitalize="none"
+                keyboardType="email-address"
+                name="email"
+                icon="mail"
+                placeholder="E-mail"
+                returnKeyType="next"
+                onSubmitEditing={() => {
+                  passwordInputRef.current?.focus();
+                }}
+              />
+              <Input
+                ref={passwordInputRef}
+                secureTextEntry
+                name="password"
+                icon="lock"
+                placeholder="Senha"
+                returnKeyType="send"
+                onSubmitEditing={() => {
+                  formRef.current?.submitForm();
+                }}
+              />
               <Button
                 onPress={() => {
                   formRef.current?.submitForm();
