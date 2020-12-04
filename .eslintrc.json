@@ -35,6 +35,10 @@
       "import/prefer-default-export": "off",
       "no-unused-expressions": "off",
       "no-use-before-define": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/prop-types": "off",
+      "camelcase": "off",
+      "@typescript-eslint/ban-types": "off",
       "prettier/prettier": "error",
       "import/extensions": [
         "error",
