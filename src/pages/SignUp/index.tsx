@@ -42,6 +42,7 @@ export const SignUp: React.FC = () => {
             </View>
 
             <Form
+              style={{ width: '100%' }}
               ref={formRef}
               onSubmit={data => {
                 console.log(data);
@@ -50,14 +51,15 @@ export const SignUp: React.FC = () => {
               <Input name="name" icon="user" placeholder="Nome" />
               <Input name="email" icon="mail" placeholder="E-mail" />
               <Input name="password" icon="lock" placeholder="Senha" />
+
+              <Button
+                onPress={() => {
+                  formRef.current?.submitForm();
+                }}
+              >
+                Cadastrar
+              </Button>
             </Form>
-            <Button
-              onPress={() => {
-                formRef.current?.submitForm();
-              }}
-            >
-              Cadastrar
-            </Button>
           </Container>
         </ScrollView>
 
