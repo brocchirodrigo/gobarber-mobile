@@ -10,11 +10,13 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.8.10",
     "@react-navigation/stack": "^5.12.8",
     "@unform/core": "^2.1.0",
     "@unform/mobile": "^2.1.0",
+    "axios": "^0.21.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -28,17 +30,20 @@
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^2.15.0",
     "react-native-vector-icons": "^7.1.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "yup": "^0.32.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
     "@react-native-community/eslint-config": "^1.1.0",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.63.2",
     "@types/react-native-vector-icons": "^6.4.6",
     "@types/react-test-renderer": "^16.9.2",
     "@types/styled-components": "^5.1.4",
+    "@types/yup": "^0.29.10",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
     "babel-jest": "^25.1.0",
