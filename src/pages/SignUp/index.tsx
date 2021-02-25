@@ -38,37 +38,43 @@ export const SignUp: React.FC = () => {
   const emailInputRef = useRef<TextInput>(null);
   const passwordInputRef = useRef<TextInput>(null);
 
-  const handleSignUp = useCallback(async (data: SignUpFormData) => {
-    try {
-      formRef.current?.setErrors({});
-      const schema = yup.object().shape({
-        name: yup.string().required('Nome obrigatório'),
-        email: yup
-          .string()
-          .required('E-mail obrigatório')
-          .email('Digite um e-mail válido'),
-        password: yup.string().min(6, 'Mínimo de 6 digitos'),
-      });
+  const handleSignUp = useCallback(
+    async (data: SignUpFormData) => {
+      try {
+        formRef.current?.setErrors({});
+        const schema = yup.object().shape({
+          name: yup.string().required('Nome obrigatório'),
+          email: yup
+            .string()
+            .required('E-mail obrigatório')
+            .email('Digite um e-mail válido'),
+          password: yup.string().min(6, 'Mínimo de 6 dígitos'),
+        });
 
-      await schema.validate(data, {
-        abortEarly: false,
-      });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
 
-      await api.post('/users', data);
+        await api.post('/users', data);
 
-      Alert.alert('Cadastro realizado com sucesso', 'Você já pode fazer login');
+        Alert.alert(
+          'Cadastro realizado com sucesso',
+          'Você já pode fazer login',
+        );
 
-      Navigation.navigate('SignIn');
-    } catch (err) {
-      if (err instanceof yup.ValidationError) {
-        const errors = getValidateErrors(err);
+        Navigation.navigate('SignIn');
+      } catch (err) {
+        if (err instanceof yup.ValidationError) {
+          const errors = getValidateErrors(err);
 
-        formRef.current?.setErrors(errors);
+          formRef.current?.setErrors(errors);
+        }
+
+        Alert.alert('Erro no cadastro', 'Ocorreu um erro ao fazer o cadastro');
       }
-
-      Alert.alert('Erro no cadastro', 'Ocorreu um erro ao fazer o cadastro');
-    }
-  }, []);
+    },
+    [Navigation],
+  );
 
   return (
     <>
