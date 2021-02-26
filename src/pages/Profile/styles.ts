@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { Platform } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 export const Container = styled.View`
   flex: 1;
@@ -10,11 +11,11 @@ export const Container = styled.View`
 `;
 
 export const BackButton = styled.TouchableOpacity`
-  margin-top: 45px;
+  margin-top: ${getStatusBarHeight() + 30}px; ;
 `;
 
 export const UserAvatarButton = styled(RectButton)`
-  margin-top: 28px;
+  margin-top: 10px;
 `;
 
 export const UserAvatar = styled.Image`
@@ -29,6 +30,12 @@ export const Title = styled.Text`
   font-size: 24px;
   color: #f4ede8;
   font-family: 'RobotoSlab-Medium';
-  margin: 64px 0 24px;
+  margin: 45px 0 24px;
   text-align: left;
+`;
+
+export const ExitButton = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 `;
